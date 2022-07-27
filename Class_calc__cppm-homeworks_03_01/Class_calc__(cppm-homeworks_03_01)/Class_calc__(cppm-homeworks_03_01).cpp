@@ -36,12 +36,6 @@ public:
         this->num2 = num2;
     }
     
-    void set_param(double num1, double num2)
-    {
-        this->num1 = num1;
-        this->num2 = num2;
-    }
-
 private:
     double num1;
     double num2;
@@ -99,19 +93,19 @@ int main()
     {
         std::cout << "Введите num1: ";
         std::cin >> n1;
-        while (!n1) {
+        while (!my_calculator.set_num1(n1)) {
             std::cout << "Неверный ввод!" << std::endl;
             std::cout << "Введите num1: ";
             std::cin >> n1;
         }
         std::cout << "Введите num2: ";
         std::cin >> n2;
-        while (!n2) {
+        while (!my_calculator.set_num2(n2)) {
             std::cout << "Неверный ввод!" << std::endl;
             std::cout << "Введите num2: ";
             std::cin >> n2;
         }
-        my_calculator.set_param(n1, n2);
+  
         std::cout << "num1 + num2 = " << my_calculator.add() << std::endl;
         std::cout << "num1 - num2 = " << my_calculator.subtract_2_1() << std::endl;
         std::cout << "num2 - num1 = " << my_calculator.subtract_1_2() << std::endl;
